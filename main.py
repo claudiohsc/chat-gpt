@@ -22,7 +22,7 @@ while True:
     top_p=1,
     frequency_penalty=0.0,
     presence_penalty=0.0,
-    stop=[" "]
+    stop=["Human: ", "AI: "]
     )
 
     text = response['choices'][0]['text']
