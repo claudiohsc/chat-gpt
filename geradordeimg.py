@@ -6,9 +6,9 @@ token = config('TOKEN')
 openai.api_key = token
 
 response = openai.Image.create(
-    prompt='a cat programming',
+    prompt='garden with tools',
     n=1,
-    size='1024x1024'
+    size='512x512'
 )
 
 url = response['data'][0]['url']
