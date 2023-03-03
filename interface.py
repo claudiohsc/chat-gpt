@@ -1,4 +1,9 @@
 from PySimpleGUI import PySimpleGUI as sg
+import openai
+from decouple import config
+
+token = config('TOKEN')
+openai.api_key = token
 
 
 #Criando Layout
@@ -6,7 +11,8 @@ from PySimpleGUI import PySimpleGUI as sg
 sg.theme('Dark Blue 3')
 layout = [
     [sg.Text('Digite sua pergunta/frase'),sg.Input(key='pergunta')],
-    [sg.Button('Enviar')]
+    [sg.Button('Enviar')],
+    [sg.Output(size=(30,30))]
 ]
 
 #Criando a janela
@@ -19,4 +25,17 @@ while True:
         break
     if eventos == 'Enviar':
         texto = valores['pergunta']
-        print(texto)
+
+        #integrando chat-gpt para responder
+        response = openai.Completion.create(
+
+            model="text-davinci-003",
+            prompt=texto,
+            temperature=0.5,
+            max_tokens=1024,
+            )
+
+        text = response['choices'][0]['text']
+
+        print(text)
+        

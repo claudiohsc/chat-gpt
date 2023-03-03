@@ -4,10 +4,10 @@ from decouple import config
 token = config('TOKEN')
 openai.api_key = token
 
+print('Bem vindo(a) ao Chat, para parar digite: "stop".')
+print(' ')
 
 while True:
-    print('Bem vindo(a) ao Chat, para parar digite: "stop".')
-    print(' ')
 
     pergunta = input('Pergunte o que quiser: ')
     if pergunta == 'stop':
@@ -17,12 +17,8 @@ while True:
 
     model="text-davinci-003",
     prompt=pergunta,
-    temperature=0,
-    max_tokens=100,
-    top_p=1,
-    frequency_penalty=0.0,
-    presence_penalty=0.0,
-    stop=["Human: ", "AI: "]
+    temperature=0.5,
+    max_tokens=1024,
     )
 
     text = response['choices'][0]['text']
