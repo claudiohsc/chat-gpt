@@ -10,9 +10,9 @@ openai.api_key = token
 
 sg.theme('Dark Blue 3')
 layout = [
-    [sg.Text('Digite sua pergunta/frase'),sg.Input(key='pergunta')],
+    [sg.Text('Digite sua pergunta/frase'),sg.Input(key='pergunta', size=(50, 4))],
     [sg.Button('Enviar')],
-    [sg.Output(size=(30,30))]
+    [sg.Output(size=(60,20))]
 ]
 
 #Criando a janela
