@@ -8,11 +8,12 @@ openai.api_key = token
 
 #Criando Layout
 
-sg.theme('Dark Blue 3')
+sg.theme('Black')
 layout = [
-    [sg.Text('Digite sua pergunta/frase'),sg.Input(key='pergunta', size=(50, 4))],
-    [sg.Button('Enviar')],
-    [sg.Output(size=(60,20))]
+    [sg.Text('Digite sua pergunta/frase:'), sg.Input(key='pergunta', size=(50, 4))],
+    [sg.Push(), sg.Button('Enviar'), sg.Push()],
+    [sg.Push(),sg.Text('Resposta do Chat-GPT:'), sg.Push()],
+    [sg.Push(), sg.Output(size=(60,20)), sg.Push()]
 ]
 
 #Criando a janela
